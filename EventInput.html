@@ -4,16 +4,107 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 
 <head>
+
   <title>Dress Check - Enter Event</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Navigation -->
+  <nav class="w3-bar w3-black">
+    <a href="DCIndex.html" class="w3-button w3-bar-item">Home</a>
+    <a href="Events.html" class="w3-button w3-bar-item">Events</a>
+    <a href="About.html" class="w3-button w3-bar-item">About</a>
+    <a href="Contact.html" class="w3-button w3-bar-item">Contact</a>
+  </nav>
 
+  <style>
+  * {
+      box-sizing: border-box;
+  }
+
+  input[type=text], select, textarea{
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+  }
+
+  label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+  }
+
+  input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+  }
+
+  input[type=submit]:hover {
+      background-color: #45a049;
+  }
+
+  .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+  }
+
+  .col-25 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+  }
+
+  .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+      .col-25, .col-75, input[type=submit] {
+          width: 100%;
+          margin-top: 0;
+      }
+  }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
 
     function createEvent(){
-      
-      //
 
+      alert("Func working at least")
+
+
+
+      var event_name = document.getElementById("Event Name").value;
+      var event_type = document.getElementById("Type").value;
+      var event_descript = document.getElementById("subject").value;
+
+      $( "#TESTID" ).text( event_name );
+
+      if (($.trim(event_name) == '') ||
+          ($.trim(event_descript) == '')) {
+        alert("Fields cannot be empty.")
+      }
+
+      else {
+        ...
+      }
 
 
 
@@ -27,94 +118,15 @@
 
       //
 
+      */
+
 
     }
   </script>
-
 </head>
 
-<!-- Navigation -->
-<nav class="w3-bar w3-black">
-  <a href="DCIndex.html" class="w3-button w3-bar-item">Home</a>
-  <a href="Events.html" class="w3-button w3-bar-item">Events</a>
-  <a href="About.html" class="w3-button w3-bar-item">About</a>
-  <a href="Contact.html" class="w3-button w3-bar-item">Contact</a>
-</nav>
-
-
-
-<html>
-<head>
-<style>
-* {
-    box-sizing: border-box;
-}
-
-input[type=text], select, textarea{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: vertical;
-}
-
-label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
-
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-.container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-.col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-    }
-}
-</style>
-</head>
 <body>
-
-<h2>Event Creation Page</h2>
+<h2 id="TESTID">Event Creation Page</h2>
 <p>Enter The Name Of Your Event And Its Detail/Information.  Hit submit when finished.</p>
 
 <div class="container">
@@ -153,7 +165,10 @@ input[type=submit]:hover {
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Submit" onclick="createEvent()">
+      <input type="submit" value="Submit" onclick="(function(){
+    alert('Hey i am calling');
+    return false;
+})();return false;">
     </div>
   </form>
 </div>
