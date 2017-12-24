@@ -7,7 +7,7 @@
 
   <title>Dress Check - Enter Event</title>
 
-<!-- Navigation -->
+  <!-- Navigation -->
   <nav class="w3-bar w3-black">
     <a href="DCIndex.html" class="w3-button w3-bar-item">Home</a>
     <a href="Events.html" class="w3-button w3-bar-item">Events</a>
@@ -82,17 +82,16 @@
   }
   </style>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
 
     function createEvent(){
 
-      alert("Func working at least")
+      alert('Func working at least');
 
-
+      /*
 
       var event_name = document.getElementById("Event Name").value;
-      var event_type = document.getElementById("Type").value;
+      var event_type = document.getElementById("T ype").value;
       var event_descript = document.getElementById("subject").value;
 
       $( "#TESTID" ).text( event_name );
@@ -123,6 +122,9 @@
 
     }
   </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -130,7 +132,7 @@
 <p>Enter The Name Of Your Event And Its Detail/Information.  Hit submit when finished.</p>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action='#'>
     <div class="row">
       <div class="col-25">
         <label for="Event Name">Event Name</label>
@@ -161,14 +163,11 @@
         <label for="subject">Subject</label>
       </div>
       <div class="col-75">
-        <textarea id="subject" name="Event Description" placeholder="Decribe Your Event" style="height:60px"></textarea>
+        <textarea id="subject" name="Event Description" placeholder="Describe Your Event" style="height:60px"></textarea>
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Submit" onclick="(function(){
-    alert('Hey i am calling');
-    return false;
-})();return false;">
+      <input type='submit' value='Submit' onclick="createEvent();"></submit>
     </div>
   </form>
 </div>
