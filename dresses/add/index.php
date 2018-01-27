@@ -1,24 +1,13 @@
 <!DOCTYPE html>
+ <html>
+ <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-
- <head>
  <title>Dress Check - About</title>
- </head>
 
- <!-- Navigation -->
- <nav class="w3-bar w3-black">
-   <a href="index.html" class="w3-button w3-bar-item">Home</a>
-   <a href="Events.html" class="w3-button w3-bar-item">Events</a>
-   <a href="About.html" class="w3-button w3-bar-item">About</a>
-   <a href="Contact.html" class="w3-button w3-bar-item">Contact</a>
- </nav>
+<?php include('nav.html'); ?>
 
-
-
- <html>
- <head>
  <style>
  * {
      box-sizing: border-box;

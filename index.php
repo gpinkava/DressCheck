@@ -7,13 +7,7 @@
 <title>Dress Check</title>
 </head>
 
-<!-- Navigation -->
-<nav class="w3-bar w3-black">
-  <a href="index.html" class="w3-button w3-bar-item">Home</a>
-  <a href="Events.html" class="w3-button w3-bar-item">Events</a>
-  <a href="About.html" class="w3-button w3-bar-item">About</a>
-  <a href="Contact.html" class="w3-button w3-bar-item">Contact</a>
-</nav>
+<?php include('nav.html'); ?>
 
 <!-- Slide Show -->
 <section>

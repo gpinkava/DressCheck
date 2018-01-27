@@ -7,13 +7,7 @@
 <title>Dress Check - Events</title>
 </head>
 
-<!-- Navigation -->
-<nav class="w3-bar w3-black">
-  <a href="index.html" class="w3-button w3-bar-item">Home</a>
-  <a href="Events.html" class="w3-button w3-bar-item">Events</a>
-  <a href="About.html" class="w3-button w3-bar-item">About</a>
-  <a href="Contact.html" class="w3-button w3-bar-item">Contact</a>
-</nav>
+<?php include('../nav.html'); ?>
 
 <section class="w3-container w3-center" style="max-width:1000px">
   <center>
@@ -25,7 +19,7 @@
 
 <html>
 <head>
-  <a href="EventInput.html" class="w3-button w3-bar-item">New Event</a>
+  <a href="/events/add" class="w3-button w3-bar-item">New Event</a>
 <style>
 * {
   box-sizing: border-box;
@@ -69,31 +63,7 @@
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Events.." title="Type in a Event">
 
-<table id="myTable">
-  <tr class="header">
-    <th style="width:60%;">Event</th>
-    <th style="width:40%;">Year</th>
-  </tr>
-  <tr>
-    <td>Ward Melville Prom</td>
-    <td>1998</td>
-  </tr>
-  <tr>
-    <td>Jessica Almitz Wedding</td>
-    <td>2017</td>
-  </tr>
-  <tr>
-    <td>Turdferers house party</td>
-    <td>2090</td>
-  </tr>
-  <tr>
-    <td>Glen's quinciniera</td>
-    <td>2030</td>
-  </tr>
-  <tr>
-    <td>Hugh's Birthday</td>
-    <td>4041</td>
-</table>
+<?php include 'posts.php'; ?>
 
 <script>
 function myFunction() {
