@@ -3,17 +3,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // If someone got to this page by clicking submit...
+  mkdir("events", 0755, true); // Make the "events" directory if it doesn"t already exist
+  $timestamp = date("U"); // give us seconds since the unix epoch, 1/1/1970
+  $fname = "../list/" . $timestamp . ".event"; // the file name of the event that was just submitted
+  $fcontents =
+    $_POST["name"] . "\n" . // the name inputted to the form
+    $_POST["type"] . "\n" . // the "type" chosen in the form
+    substr($_POST["desc"], 0, 100); // the first 100 characters of the description
+  file_put_contents($fname, $fcontents); // put the event into the file
+  echo("<script>alert('Event added successfully!');</script>");
+}
+?>
+
 <head>
 
   <title>Dress Check - Enter Event</title>
 
-  <!-- Navigation -->
-  <nav class="w3-bar w3-black">
-    <a href="index.html" class="w3-button w3-bar-item">Home</a>
-    <a href="Events.html" class="w3-button w3-bar-item">Events</a>
-    <a href="About.html" class="w3-button w3-bar-item">About</a>
-    <a href="Contact.html" class="w3-button w3-bar-item">Contact</a>
-  </nav>
+<?php include('../../nav.html'); ?>
 
   <style>
   * {
@@ -82,22 +90,22 @@
   }
   </style>
 
-  <script>
+<script>
 
-    function createEvent(){
+function createEvent(){
 
-      alert('Func working at least');
+  alert("Func working at least");
 
       /*
 
-      var event_name = document.getElementById("Event Name").value;
+        var event_name = document.getElementById("Event Name").value;
       var event_type = document.getElementById("T ype").value;
       var event_descript = document.getElementById("subject").value;
 
       $( "#TESTID" ).text( event_name );
 
-      if (($.trim(event_name) == '') ||
-          ($.trim(event_descript) == '')) {
+      if (($.trim(event_name) == "") ||
+          ($.trim(event_descript) == "")) {
         alert("Fields cannot be empty.")
       }
 
@@ -117,10 +125,10 @@
 
       //
 
-      */
+       */
 
 
-    }
+}
   </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -132,24 +140,24 @@
 <p>Enter The Name Of Your Event And Its Detail/Information.  Hit submit when finished.</p>
 
 <div class="container">
-  <form action='#'>
+  <form action="/events/add" method="post">
     <div class="row">
       <div class="col-25">
-        <label for="Event Name">Event Name</label>
+        <label for="name">Event Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="Event Name" name="Event Name" placeholder="Your Event Name.." style="height:20px"></textarea>
+        <input type="text" id="name" name="name" placeholder="Your Event Name.." style="height:20px"></textarea>
       </div>
-    <div class="col-75">
-  </div>
-</div>
+      <div class="col-75">
+      </div>
+    </div>
 
-<div class="row">
-  <div class="col-25">
-      <label for="Event Type">Event Type</label>
-  </div>
-    <div class="col-75">
-        <select id="Type" name="Type">
+    <div class="row">
+      <div class="col-25">
+        <label for="type">Event Type</label>
+      </div>
+      <div class="col-75">
+        <select id="type" name="type">
           <option value="Wedding">Wedding</option>
           <option value="Prom">Prom</option>
           <option value="Formal Event">Formal Event</option>
@@ -160,14 +168,14 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="subject">Subject</label>
+        <label for="desc">Subject</label>
       </div>
       <div class="col-75">
-        <textarea id="subject" name="Event Description" placeholder="Describe Your Event" style="height:60px"></textarea>
+        <textarea id="desc" name="desc" placeholder="Describe Your Event" style="height:60px"></textarea>
       </div>
     </div>
     <div class="row">
-      <input type='submit' value='Submit' onclick="createEvent();"></submit>
+      <input type="submit" value="Submit"></input>
     </div>
   </form>
 </div>
