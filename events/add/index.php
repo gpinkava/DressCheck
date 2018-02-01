@@ -5,7 +5,9 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // If someone got to this page by clicking submit...
-  mkdir("events", 0755, true); // Make the "events" directory if it doesn"t already exist
+  if (!file_exists("../list")) {
+    mkdir("../list", 0755, true); // Make the "list" directory if it doesn"t already exist
+  }
   $timestamp = date("U"); // give us seconds since the unix epoch, 1/1/1970
   $fname = "../list/" . $timestamp . ".event"; // the file name of the event that was just submitted
   $fcontents =
@@ -13,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // If someone got to this page by cl
     $_POST["type"] . "\n" . // the "type" chosen in the form
     substr($_POST["desc"], 0, 100); // the first 100 characters of the description
   file_put_contents($fname, $fcontents); // put the event into the file
-  echo("<script>alert('Event added successfully!');</script>");
 }
 ?>
 
@@ -90,57 +91,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // If someone got to this page by cl
   }
   </style>
 
-<script>
-
-function createEvent(){
-
-  alert("Func working at least");
-
-      /*
-
-        var event_name = document.getElementById("Event Name").value;
-      var event_type = document.getElementById("T ype").value;
-      var event_descript = document.getElementById("subject").value;
-
-      $( "#TESTID" ).text( event_name );
-
-      if (($.trim(event_name) == "") ||
-          ($.trim(event_descript) == "")) {
-        alert("Fields cannot be empty.")
-      }
-
-      else {
-        ...
-      }
-
-
-
-
-      // Create JSON representation of event, log to memory
-
-
-
-
-
-
-      //
-
-       */
-
-
-}
-  </script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
 <h2 id="TESTID">Event Creation Page</h2>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // If someone got to this page by clicking submit...
+  echo("<p style=\"color:green;\">Event added!</p>");
+}
+?>
 <p>Enter The Name Of Your Event And Its Detail/Information.  Hit submit when finished.</p>
 
 <div class="container">
-  <form action="/events/add" method="post">
+  <form action="#" method="post">
     <div class="row">
       <div class="col-25">
         <label for="name">Event Name</label>
